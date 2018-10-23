@@ -1,0 +1,9 @@
+[package]
+name = "dead_time"
+version = "0.1.0"
+authors = ["Fabian Thiele <fabian.thiele@posteo.de>"]
+
+[dependencies]
+rand = "0.5"
+threadpool = "1.7.1"
+num_cpus = "1.8.0"
