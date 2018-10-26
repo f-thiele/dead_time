@@ -59,7 +59,7 @@ impl Buffer {
 
 fn calc_dead_time(buffer_limit : u64, max_event: u64) -> (f64, f64) {
     let mut rng = rand::thread_rng();
-    let l1a_prob = 75./40000.; // probability for a L1A to occur: 75 kHz over 40 MHz
+    let l1a_prob : f64 = 75./40000.; // probability for a L1A to occur: 75 kHz over 40 MHz
     let mut block : u64 = 0; // counts remaining events that the L1A is blocked, 0 is free
     let mut n_l1a : u64 = 0; // counts of occured L1As
     let mut not_recorded : u64 = 0; // counts of events where L1A trigger but haven't been recorded
@@ -96,7 +96,7 @@ fn calc_dead_time(buffer_limit : u64, max_event: u64) -> (f64, f64) {
 
         b.read(); // check if we have events and start reading them
 
-        let p = rng.gen_range(0.0, 1.0);
+        let p : f64 = rng.gen_range(0.0, 1.0);
         events += 1;
 
         if p < l1a_prob {
@@ -122,8 +122,9 @@ fn calc_dead_time(buffer_limit : u64, max_event: u64) -> (f64, f64) {
 }
 
 fn main() {
-    let mut max_limit : u64 = 15;
-    let mut min_limit : u64 = 0;
+    // use the following two values to loop over different buffer sizes
+    let mut max_limit : u64 = 15; // default max buffer size
+    let mut min_limit : u64 = 0;  // default min buffer size
 
     let args: Vec<String> = env::args().collect();
 
