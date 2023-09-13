@@ -1,6 +1,6 @@
 [package]
 name = "dead_time"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Fabian Thiele <fabian.thiele@posteo.de>"]
 
 [dependencies]
